@@ -1,26 +1,47 @@
-Brimir [![Build Status](https://travis-ci.org/ivaldi/brimir.png)](https://travis-ci.org/ivaldi/brimir) [![Coverage Status](https://coveralls.io/repos/ivaldi/brimir/badge.png)](https://coveralls.io/r/ivaldi/brimir)
+# BackEnd Fiscal Cidadão [![Build Status](https://travis-ci.org/ivaldi/brimir.png)](https://travis-ci.org/ivaldi/brimir) [![Coverage Status](https://coveralls.io/repos/ivaldi/brimir/badge.png)](https://coveralls.io/r/ivaldi/brimir)
 ======
-[Brimir](http://getbrimir.com/) is a simple helpdesk system that can be used to handle support requests
-via incoming email. Brimir is currently used in production at [Ivaldi](http://ivaldi.nl/).
+
+## TODO Back End
+
+1. Add lat e long e demais campos pro ticket do Fiscal Cidadão no model do backend
+2. Colocar o geocoder pra a partir da latitude e api do google descobrir municipio, bairro e endereço
+3. Criar a regra de roteamento apartir do label
+4. Criar emails padrão para disparo
+5. Testar servidor de email do governo
+6. Dashboard com mapa de cada 'evento'
+7. Enviar Push a cada alteração de status
+
+## TODO API
+
+1. Logar [OK]
+2. Criar Ticket com Usuario [Ok]
+3. Criar Ticket Anonimo [Ok]
+4. Enviar imagem Base64 (string) [ok]
+
+5. GET Lista dos Meus tickets
+6. GET Historico das Mensagens de Cada Ticket
+7. POST Adicionar mais informações
 
 
-TODO para back end
+## TODO Mobile
 
-1) add lat e long e demias campos pro ticket do Fiscal Cidadão
+1. Wire frame e Flow [Ok]
 
-2) colocar o geocoder pra a partir da latitude e api do google descobrir municipio, bairro e endereço
+1. Tela Principal
+2. Enviar Anonimo
+3. Logar
+4. Enviar logado
+5. Lista De Tickets Abertos
+6. Historico de um Tickets
+7. Envio de novas informações pro ticket.
 
-3) dashboard com mapa de cada 'evento'
 
-4) criar a regra de roteamento apartir do label
+## Fluxo Base
 
-5) Criar emails padrão para disparo
+a) Cada aplicativo tem um label especifico que é inserido via API, chegou com label roteia pro time.
 
-6) testar servidor de email do governo
-
-Fluxo -
-a) Cada aplicativo tem um label especifico, chegou com label roteia pro time.
 b) a partir da long e lat roda o geocoder e adiciona o enderço do evento
+
 c) com o municipio e o tipo de ocorrencia o motor de regra roteia pra uma determinada equipe
 
 
