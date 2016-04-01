@@ -3,6 +3,30 @@ Brimir [![Build Status](https://travis-ci.org/ivaldi/brimir.png)](https://travis
 [Brimir](http://getbrimir.com/) is a simple helpdesk system that can be used to handle support requests
 via incoming email. Brimir is currently used in production at [Ivaldi](http://ivaldi.nl/).
 
+
+TODO para back end
+
+1) add lat e long e demias campos pro ticket do Fiscal Cidadão
+
+2) colocar o geocoder pra a partir da latitude e api do google descobrir municipio, bairro e endereço
+
+3) dashboard com mapa de cada 'evento'
+
+4) criar a regra de roteamento apartir do label
+
+5) Criar emails padrão para disparo
+
+6) testar servidor de email do governo
+
+Fluxo -
+a) Cada aplicativo tem um label especifico, chegou com label roteia pro time.
+b) a partir da long e lat roda o geocoder e adiciona o enderço do evento
+c) com o municipio e o tipo de ocorrencia o motor de regra roteia pra uma determinada equipe
+
+
+
+
+
 Installation
 ------------
 Brimir is a rather simple Ruby on Rails application. The only difficulty in setting things up is how to get incoming email to work. See the next section for details.
