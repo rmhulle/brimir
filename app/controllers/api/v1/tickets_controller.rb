@@ -29,6 +29,7 @@ class Api::V1::TicketsController < Api::V1::ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    @replies = Reply.find_by(ticket_id: params[:id])
   end
 
   def create

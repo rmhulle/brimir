@@ -43,4 +43,20 @@ class AttachmentsController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
   end
+
+  def besfore_save
+    tempfile = data.queued_for_write[:original]
+    unless tempfile.nil?
+      extension = File.extname(tempfile.original_filename)
+      if !extension || extension == ''
+        mime = tempfile.content_type
+        ext = Rack::Mime::MIME_TYPES.invert[mime]
+        self.data.instance_write :file_name, "#{tempfile.original_filename}#{ext}"
+      end
+    end
+
+    true
+  end
+
+
 end

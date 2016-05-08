@@ -29,6 +29,8 @@ module TicketsapiStrongParams
         :priority,
         :message_id,
         :content_type,
+        :lat,
+        :long,
         attachments_attributes: [
           :id,
           :file
@@ -40,6 +42,8 @@ module TicketsapiStrongParams
         :subject,
         :priority,
         :content_type,
+        :lat,
+        :long,
         attachments_attributes: [
           :id,
           :file

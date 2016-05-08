@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310134243) do
+ActiveRecord::Schema.define(version: 20160508065609) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "attachable_id"
@@ -146,6 +146,10 @@ ActiveRecord::Schema.define(version: 20160310134243) do
     t.string   "raw_message_content_type"
     t.integer  "raw_message_file_size"
     t.datetime "raw_message_updated_at"
+    t.float    "lat"
+    t.float    "long"
+    t.string   "city"
+    t.string   "raw_address"
   end
 
   add_index "tickets", ["assignee_id"], name: "index_tickets_on_assignee_id"
