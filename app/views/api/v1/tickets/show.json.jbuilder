@@ -6,7 +6,8 @@ json.assignee @ticket.assignee.email
 json.status @ticket.status
 json.priority @ticket.priority
 json.latitude @ticket.lat
-json.latitude @ticket.long
+json.longitude @ticket.long
+json.address @ticket.raw_address
 json.labels @ticket.labelings.each do |labeling|
   json.name labeling.label.name
 end

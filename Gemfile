@@ -20,6 +20,8 @@ gem 'byebug', group: [:development, :test]
 gem 'pry', group: [:development, :test]
 gem 'pry-byebug', group: [:development, :test]
 
+gem 'geocoder'
+
 
 group :development do
   # Spring application pre-loader

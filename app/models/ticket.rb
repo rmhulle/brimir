@@ -38,6 +38,17 @@ class Ticket < ActiveRecord::Base
   enum status: [:open, :closed, :deleted, :waiting, :merged]
   enum priority: [:unknown, :low, :medium, :high]
 
+  # reverse_geocoded_by :lat, :long,
+  # :address => :raw_address
+  # after_validation :reverse_geocode
+
+  reverse_geocoded_by :lat, :long do |obj,results|
+    if geo = results.first
+      obj.city        = geo.city
+      obj.raw_address = geo.address
+    end
+  end
+  after_validation :reverse_geocode
   after_update :log_status_change
   after_create :create_status_change
 
@@ -75,7 +86,7 @@ class Ticket < ActiveRecord::Base
       all
     end
   }
-  
+
   scope :filter_by_user_id, ->(user_id) {
     if user_id
       where(user_id: user_id)
@@ -168,6 +179,7 @@ class Ticket < ActiveRecord::Base
     def create_status_change
       status_changes.create! status: self.status
     end
+
 
     def log_status_change
 

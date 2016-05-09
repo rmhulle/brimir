@@ -76,7 +76,7 @@ class TicketsController < ApplicationController
       .filter_by_assignee_id(params[:assignee_id])
       .filter_by_user_id(params[:user_id])
       .ordered
-    
+
     if params[:status] != 'merged'
       @tickets = @tickets.where.not(status: Ticket.statuses[:merged])
     end
@@ -150,6 +150,7 @@ class TicketsController < ApplicationController
 
     if !@ticket.nil? && @ticket.save
       NotificationMailer.incoming_message(@ticket, params[:message])
+
     end
 
     respond_to do |format|

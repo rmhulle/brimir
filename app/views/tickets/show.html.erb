@@ -24,12 +24,18 @@
             <%= t :to_email, email: @ticket.to_email_address.email %>
           <% end %>
         </h5>
+        <h5 class="text-default mb no-mt">
+        <strong>Endereço:</strong>
+          <a href="http://maps.google.com/maps?q=<%= @ticket.lat %>,<%= @ticket.long %>" target="_blank"> <%= @ticket.raw_address %></a>
+
+        </h5>
 
         <ul class="no-m">
           <li class="ib no-ml mrl">
             <span class="fa fa-tag fa-fw ib"></span>
             <%= t(:ticket_id) %>: <%= @ticket.id %>
           </li>
+
           <li class="ib mrl">
             <% if can? :update, @ticket %>
               <a href="#" data-dropdown="statuses-<%= @ticket.id %>">

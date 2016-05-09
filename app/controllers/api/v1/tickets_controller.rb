@@ -18,6 +18,7 @@ class Api::V1::TicketsController < Api::V1::ApplicationController
 
   load_and_authorize_resource :ticket
 
+
   def index
     if current_user.agent && params.has_key?(:user_email)
       user= User.find_by( email: Base64.urlsafe_decode64(params[:user_email]) )
@@ -53,7 +54,10 @@ class Api::V1::TicketsController < Api::V1::ApplicationController
         content_id: content_id)
 
     if teste
+      @labeling = Labeling.new(labelable: @ticket, label: { name: @ticket.city} )
+      @labeling.save
       NotificationMailer.incoming_message(@ticket, params[:message])
+
       render nothing: true, status: :created
     else
       render nothing: true, status: :bad_request
